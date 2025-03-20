@@ -1,0 +1,192 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNHNL4XlSu+s1V5Cps57vex",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/jihong03/marine-datamining/blob/main/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%A7%88%EC%9D%B4%EB%8B%9D%203%EC%A3%BC%EC%B0%A8%20%EA%B3%BC%EC%A0%9C\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "n6mlIGItfAoW",
+        "outputId": "737bb132-7e33-4ff6-c54f-2bafee879bf8"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "a = [2, 3, 4, 5, 6]\n",
+            "rev_a = [6, 5, 4, 3, 2]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = [2, 3, 4, 5, 6]\n",
+        "temp_a = a[:]  # 원본 리스트를 복사하여 pop()을 적용할 리스트\n",
+        "rev_a = []  # 역순으로 저장할 리스트\n",
+        "\n",
+        "for _ in range(len(temp_a)):\n",
+        "    rev_a.append(temp_a.pop())\n",
+        "\n",
+        "print(\"a =\", a)\n",
+        "print(\"rev_a =\", rev_a)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random\n",
+        "\n",
+        "# 1~9 사이의 랜덤 숫자로 이루어진 튜플 생성\n",
+        "tup = tuple(random.randint(1, 9) for _ in range(15))\n",
+        "\n",
+        "print(\"주어진 튜플:\", tup)\n",
+        "\n",
+        "temp = sorted(list(tup))\n",
+        "\n",
+        "max_count = 1\n",
+        "count = 1\n",
+        "cur_value = max_value = temp[0]\n",
+        "\n",
+        "for i in range(1, len(temp)):\n",
+        "    if temp[i] == cur_value:\n",
+        "        count += 1\n",
+        "        if count >= max_count:\n",
+        "            max_count = count\n",
+        "            max_value = cur_value\n",
+        "    else:\n",
+        "        cur_value = temp[i]\n",
+        "        count = 1\n",
+        "\n",
+        "# 결과 출력\n",
+        "print(\"가장 많이 나타나는 요소는:\", max_value)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FnjVTkZEf0v2",
+        "outputId": "5595ca8d-a658-4093-ec0c-9548cf18fb85"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "주어진 튜플: (3, 7, 3, 5, 2, 4, 2, 9, 7, 4, 7, 3, 2, 8, 9)\n",
+            "가장 많이 나타나는 요소는: 7\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "menu = {\n",
+        "    \"Americano\": 3000,\n",
+        "    \"Ice Americano\": 3500,\n",
+        "    \"Cappuccino\": 4000,\n",
+        "    \"Cafe Latte\": 4500,\n",
+        "    \"Espresso\": 3600\n",
+        "}\n",
+        "\n",
+        "# 메뉴 출력\n",
+        "for key in menu:\n",
+        "    print(\"{:16s}  가격 : {:,}원\".format(key, menu[key]))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oenhu8JRh4S_",
+        "outputId": "80e0a9a7-4b6f-4597-c59b-c4b6b4f5fa76"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Americano         가격 : 3,000원\n",
+            "Ice Americano     가격 : 3,500원\n",
+            "Cappuccino        가격 : 4,000원\n",
+            "Cafe Latte        가격 : 4,500원\n",
+            "Espresso          가격 : 3,600원\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "menu = {\n",
+        "    \"Americano\": 3000,\n",
+        "    \"Ice Americano\": 3500,\n",
+        "    \"Cappuccino\": 4000,\n",
+        "    \"Cafe Latte\": 4500,\n",
+        "    \"Espresso\": 3600\n",
+        "}\n",
+        "\n",
+        "for key in menu:\n",
+        "    print(\"{:16s}  가격 : {:,}원\".format(key, menu[key]))\n",
+        "\n",
+        "choice = input(\"위의 메뉴 중 하나를 선택하세요: \")\n",
+        "\n",
+        "if choice in menu:\n",
+        "    print(\"{}는 {:,}원 입니다. 결제를 부탁합니다.\".format(choice, menu[choice]))\n",
+        "else:\n",
+        "    print(\"미안합니다. {}는 메뉴에 없습니다.\".format(choice))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vEQ3uI23idWU",
+        "outputId": "f543ce4b-474a-48c3-a67f-85b842c288ad"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Americano         가격 : 3,000원\n",
+            "Ice Americano     가격 : 3,500원\n",
+            "Cappuccino        가격 : 4,000원\n",
+            "Cafe Latte        가격 : 4,500원\n",
+            "Espresso          가격 : 3,600원\n",
+            "위의 메뉴 중 하나를 선택하세요: Espresso\n",
+            "Espresso는 3,600원 입니다. 결제를 부탁합니다.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
